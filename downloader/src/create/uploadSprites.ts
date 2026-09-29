@@ -2,14 +2,17 @@ import fs from "fs"
 import { getOfficialFamily, getOfficialRelease } from "../helper/official"
 import defVer from "../helper/fonts"
 import { downloadFile } from "../main/file-downloader"
-import waittime from "../helper/waittime"
 
 const baseUrl = "https://site-assets.fontawesome.com/releases"
+
+const maxCompleted: number = 4000
 
 const isNewOnly = process.argv.some((k) => k === "--newOnly=true")
 
 export async function startDownloadSprites(): Promise<void> {
   let numCompleted: number = 0
+
+  const fileExisted: string[] = []
 
   const officialRelease = await getOfficialRelease()
 
@@ -37,14 +40,20 @@ export async function startDownloadSprites(): Promise<void> {
     const fileExists = fs.existsSync(`${dir}/${fileName}`)
 
     if (isNewOnly && fileExists) {
-      console.log(`? ${progress} ${fileName} (existed)`)
-      await waittime(175)
+      if (!fileExisted.includes(fileName)) {
+        fileExisted.push(`${i + 1} ${fileName}`)
+        // console.log(`? ${progress} ${fileName} (existed)`)
+      }
     } else {
+      if (fileExisted.length >= 1) {
+        console.log(`? [EXISTED]: ${fileExisted.join(", ")}`)
+      }
+
       await downloadFile(url, dir, progress)
       numCompleted++
     }
 
-    if (numCompleted >= 2000) {
+    if (numCompleted >= maxCompleted) {
       break
     }
   }
