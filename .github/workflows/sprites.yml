@@ -1,4 +1,4 @@
-name: Upload Singles (SVGs Full)
+name: Upload Sprites (SVGs)
 
 on:
   workflow_dispatch:
@@ -69,7 +69,7 @@ jobs:
           CUSTOM_TAG="${{ inputs.custom_previous }}"
           CLEAN_TAG=${CUSTOM_TAG#v}
 
-          ASSET_NAME=SVG-singles-full-only-v$CLEAN_TAG.zip
+          ASSET_NAME=SVG-sprites-only-v$CLEAN_TAG.zip
 
           if gh release view "v$CLEAN_TAG" > /dev/null 2>&1; then
             echo "Release found."
@@ -104,7 +104,7 @@ jobs:
           CUSTOM_TAG="${{ inputs.custom_previous }}"
           CLEAN_TAG=${CUSTOM_TAG#v}
 
-          ASSET_NAME=SVG-singles-full-only-v$CLEAN_TAG.zip
+          ASSET_NAME=SVG-sprites-only-v$CLEAN_TAG.zip
 
           set -e
 
@@ -144,7 +144,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
 
-  create_singles:
+  create_sprites:
     needs: setup
     runs-on: ubuntu-latest
     env:
@@ -176,29 +176,29 @@ jobs:
         working-directory: ./downloader
         run: npm run build
 
-      - name: Create SVG Singles Full
+      - name: Create SVG Sprites
         working-directory: ./downloader
         run: |
 
           if [ "${{ inputs.new_assets_only }}" = "true" ]; then
             echo "Using overwriting assets..."
 
-            npm run svg-full-singles -- --newOnly=true
+            npm run svg-sprites -- --newOnly=true
 
           else
             echo "Using force new assets.."
 
-            npm run svg-full-singles
+            npm run svg-sprites
           fi
 
       - name: Create ZIP for files
         run: |
           VERSION="${{ needs.setup.outputs.release_version }}"
-          ZIP_NAME="SVG-singles-full-only-v$VERSION.zip"
+          ZIP_NAME="SVG-sprites-only-v$VERSION.zip"
           TAG_NAME="v$VERSION"
 
           cd dist
-          zip -r "../$ZIP_NAME" svgs-full/
+          zip -r "../$ZIP_NAME" sprites/
           cd ..
 
           if gh release view "$TAG_NAME" &>/dev/null; then
