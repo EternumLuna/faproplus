@@ -41,12 +41,12 @@ export async function startDownloadSprites(): Promise<void> {
 
     if (isNewOnly && fileExists) {
       if (!fileExisted.includes(fileName)) {
-        fileExisted.push(`${i + 1} ${fileName}`)
-        // console.log(`? ${progress} ${fileName} (existed)`)
+        fileExisted.push(fileName)
       }
     } else {
       if (fileExisted.length >= 1) {
         console.log(`? [EXISTED]: ${fileExisted.join(", ")}`)
+        fileExisted.splice(0, fileExisted.length)
       }
 
       await downloadFile(url, dir, progress)
