@@ -5,11 +5,13 @@ import { downloadFile } from "../main/file-downloader"
 
 const baseUrl = "https://site-assets.fontawesome.com/releases"
 
-const maxCompleted: number = 4000
+const maxHour = 3 * 60 * 60 * 1000
 
 const isNewOnly = process.argv.some((k) => k === "--newOnly=true")
 
 export async function startDownloadSingles(): Promise<void> {
+  const maxTime = Date.now() + maxHour
+
   let numCompleted: number = 0
 
   const fileExisted: string[] = []
@@ -30,7 +32,7 @@ export async function startDownloadSingles(): Promise<void> {
     const shorthands = officialIcons[ipack].shorthands
     const iconId = officialIcons[ipack].id
 
-    if (numCompleted >= maxCompleted) {
+    if (Date.now() >= maxTime) {
       break
     }
 
@@ -63,12 +65,12 @@ export async function startDownloadSingles(): Promise<void> {
         numCompleted++
       }
 
-      if (numCompleted >= maxCompleted) {
+      if (Date.now() >= maxTime) {
         break
       }
     }
 
-    if (numCompleted >= maxCompleted) {
+    if (Date.now() >= maxTime) {
       break
     }
   }
