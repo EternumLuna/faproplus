@@ -1,0 +1,58 @@
+{
+  "name": "webfont-awesome-pro",
+  "version": "7.3.2-wip.6",
+  "description": "Font Awesome Pro v7.3.1",
+  "author": "EternumLuna <lunaeternum@protonmail.com> (https://github.com/EternumLuna/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EternumLuna/faproplus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EternumLuna/faproplus/issues"
+  },
+  "homepage": "https://github.com/EternumLuna/faproplus#readme",
+  "keywords": [
+    "font-awesome-pro",
+    "fontawesomepro",
+    "font-awesome",
+    "fontawesome",
+    "font-awesome-pro-downloader",
+    "font-awesome-downloader",
+    "font",
+    "webfont",
+    "font-face"
+  ],
+  "exports": {
+    "./js/*": "./dist/js/*",
+    "./styles/*": "./dist/css/*",
+    "./webfonts/*": "./dist/webfonts/*",
+    "./css/*": "./dist/css/*",
+    "./scss/*": "./dist/scss/*"
+  },
+  "files": [
+    "dist/"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "type-check": "cd ./downloader && npm run type-check && cd ..",
+    "lint": "cd ./downloader && npm run lint && cd ..",
+    "format": "cd ./downloader && npm run format && cd ..",
+    "check": "cd ./downloader && npm run check && cd ..",
+    "start": "cd ./downloader && npm run start && cd ..",
+    "create": "cd ./downloader && npm run create && cd ..",
+    "build": "cd ./downloader && npm run build && cd ..",
+    "version:patch": "npm --no-git-tag-version version patch",
+    "version:minor": "npm --no-git-tag-version version minor",
+    "version:major": "npm --no-git-tag-version version major",
+    "pre:patch": "npm --no-git-tag-version version prepatch && npm --no-git-tag-version version prerelease --preid wip",
+    "pre:minor": "npm --no-git-tag-version version preminor && npm --no-git-tag-version version prerelease --preid wip",
+    "pre:major": "npm --no-git-tag-version version premajor && npm --no-git-tag-version version prerelease --preid wip",
+    "pre:release": "npm --no-git-tag-version version prerelease",
+    "svg-singles": "cd ./downloader && npm run svg-singles && cd ..",
+    "svg-full-singles": "cd ./downloader && npm run svg-full-singles && cd ..",
+    "svg-sprites": "cd ./downloader && npm run svg-sprites && cd .."
+  }
+}

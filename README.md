@@ -4,47 +4,171 @@
 npm install --save-exact webfont-awesome-pro
 ```
 
-## Table of Contents
-- [Where's the source code?](#where-is-the-source-code)
-- [Purpose of this repository](#purpose-of-this-repository)
-- [Thanks](#thanks)
+> Downloadable version: [font-awesome-pro-v7.3.1.zip](https://github.com/LunaEternum/font-awesome-pro/releases)
+
+Use the Latest [**Font Awesome Pro+**](https://fontawesome.com/) for Free. Get all stylesheets and webfonts into your project easily!
+
+- Package Version: 7.3.2-wip.6
+- Font Awesome Pro+ Version: 7.3.1
+- Forked from: [devanka761/font-awesome-pro](https://github.com/devanka761/font-awesome-pro) *(discontinued)*
+
+## NOTICE
+**Font Awesome Pro+** was made for educational purposes only!
+
+This package provides **Paid (Pro+) Version** for the latest official package. It is intended for experimental and **personal use** only. It is **licensed for commercial** use.
+
+**DO NOT** use this package if you are not the *Creators* or you have not buy the official product from the official website.
+
+To unlock commercial use for your own projects, and get an official product license, please consider to go to the Font Awesome official webiste: https://fontawesome.com/plans
+
+## TABLE OF CONTENTS
+- [**NOTICE**](#notice)
+- **SETUP**
+  - [Setup with NPM](#setup)
+  - or [Download font-awesome-pro-v7.3.1.zip](https://github.com/LunaEternum/font-awesome-pro/releases)
+- **HOW TO USE**
+  - [NPM version](#how-to-use-with-npm)
+  - [Download version](#how-to-use-download-version)
+- **SPECIFY ICON PACKS**
+  - [Use specific icon packs only](#specify-icon-packs)
+- [**PROBLEMS**](#problems)
+
+## SETUP
+
+Install the package
+
+```bash
+npm install --save-exact webfont-awesome-pro
+```
+
+## USAGE
+
+### HOW TO USE: WITH NPM
+
+You're used to working with a bundler, huh?
+- [TypeScript/JavaScript](#typescriptjavascript) with bundler
+- [SCSS/CSS](#scsscss) with bundler
+
+Use your favorite bundler (webpack, vite, etc).
+
+#### TypeScript/JavaScript
+
+example `style-main.ts` / `style-main.js`:
+
+```javascript
+// SCSS
+import "webfont-awesome-pro/scss/all.scss";
+
+// or CSS
+import "webfont-awesome-pro/css/all.css";
+
+// your code
+document.body.innerHTML = `
+  <p>Look at these icons!</p>
+  <i class="fa-sharp-duotone fa-solid fa-user-secret"></i>
+`;
+
+```
+
+#### SCSS/CSS
+
+example `style.scss` / `style.css`:
+
+```scss
+// support: SCSS
+@use "webfont-awesome-pro/scss/all.scss";
+
+// support: CSS, SCSS
+@import "webfont-awesome-pro/scss/all.scss";
+
+// support: CSS, SCSS
+@import url("webfont-awesome-pro/scss/all.scss");
+
+```
 
 ---
 
-> This project is **no longer maintained**, **has been discontinued**, and there are **no future plans** to revive or update it.
+### HOW TO USE: DOWNLOAD VERSION
 
-There are no plans to continue development, maintenance, updates, or releases of free Font Awesome Pro+ in the future. Any code, assets, content, or other materials related to Font Awesome will no longer be maintained or distributed through this repository.
+Extract `css` and `webfonts` into the same folder.
 
-## Where do I get a free fapro+ now?
+Example:
 
-You cannot get an official, maintained version of free Font Awesome Pro+ from this repository anymore.
+```
+MY-PROJECT
+│   index.html
+│   style.css
+│   ...
+│
+└───fapro
+    ├───css
+    │     ...css
+    │     ...css
+    │     ...
+    │
+    └───webfonts
+          ...woff2
+          ...woff2
+          ...
+```
 
-All original code, assets, and related content are being removed from this repository as part of the project's discontinuation.
+#### CSS
 
-It is possible that someone may create their own version, fork, rewrite, or otherwise recreate free Font Awesome Pro+ under their own repository or project. Such projects, if they exist or appear in the future, are not affiliated with or maintained by this repository.
+example `style.css`
 
-## Where is the source code?
+```css
+@import "./fapro/css/all.css";
+```
 
-This repository received a takedown request from [alexpoiry](https://github.com/alexpoiry) of [FontAwesome](https://github.com/FortAwesome), expressing regret over the presence of their premium content within this project.
+#### HTML
 
-[**/issues/26**](https://github.com/devanka761/font-awesome-pro/issues/26)
+example `index.html`:
 
-Rather than continuing to maintain or distribute the repository and potentially creating further issues with [FontAwesome](https://github.com/FortAwesome), I have decided to voluntarily take down the repository and its associated materials in their entirety.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-This decision also means that even isolated pieces of code or other materials that could potentially be used to reconstruct, revive, or provide future updates to free Font Awesome Pro+ will not be retained here.
+  ... meta, etc
+
+  <link rel="stylesheet" href="./fapro/css/all.css" />
+
+  ... style, theme, script, etc
+
+  <title>MyCoolApp</title>
+</head>
+<body>
+  
+  <main class="main-example">
+    <i class="fa-vellum fa-solid fa-pizza-slice"></i>
+    <i class="fa-pixel fa-regular fa-shirt"></i>
+  </main>
+
+</body>
+</html>
+```
 
 
-## Purpose of this Repository
-For the time being, this repository exists primarily as a reference and educational archive.
+### SPECIFY ICON PACKS
 
-Some of the information that was associated with free Font Awesome Pro+ may still be useful to developers who are interested in learning about unusual implementation techniques, obscure features, or simply experimenting with things that are not commonly encountered in everyday development.
+You can import specific font awesome pro+ styles. Make sure to always import the `fontawesome.scss` / `fontawesome.css` before other styles.
 
-The project itself is over, but the technical knowledge surrounding it may still be interesting. Please do not interpret the remaining information as an indication that development will resume. It will not.
+example `main-style.js` with bundler:
 
-## Thanks
+```javascript
+import "webfont-awesome-pro/css/fontawesome.css";
 
-Thanks to every that has contributed over the years to the free Font Awesome Pro+ project.
+import "webfont-awesome-pro/scss/regular.scss";
+import "webfont-awesome-pro/scss/duotone.scss";
+import "webfont-awesome-pro/scss/sharp-duotone-solid.scss";
 
-It is somewhat disappointing to see valuable assets being exposed publicly when those assets should arguably have been protected much more carefully from public access in the first place. Sadly we've gotten ourselves in this predicament.
+import "webfont-awesome-pro/scss/chisel-regular.scss";
+import "webfont-awesome-pro/scss/etch-solid.scss";
+import "webfont-awesome-pro/scss/notdog-solid.scss";
 
-This project is now being closed, and I have no intention of reopening that chapter.
+// imported: fa-regular, fa-duotone, fa-sharp-duotone-solid, fa-chisel-regular, fa-etch-solid, fa-notdog-solid
+```
+
+## PROBLEMS?
+
+Please post any bugs as a [GitHub issue](https://github.com/LunaEternum/font-awesome-pro/issues).

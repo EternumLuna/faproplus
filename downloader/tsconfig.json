@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "types": [
+      "node"
+    ],
+    "module": "node16",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "moduleResolution": "node16",
+    "typeRoots": [
+      "src/types",
+      "node_modules/@types"
+    ],
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "removeComments": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./node_modules/*",
+    "./dist/**/*",
+  ]
+}
