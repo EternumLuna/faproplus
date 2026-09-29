@@ -4,7 +4,7 @@
 npm install --save-exact webfont-awesome-pro
 ```
 
-> Downloadable version: [font-awesome-pro-v7.3.1.zip](https://github.com/LunaEternum/font-awesome-pro/releases)
+> Downloadable version: [font-awesome-pro-v7.3.1.zip](https://github.com/EternumLuna/faproplus/releases)
 
 Use the Latest [**Font Awesome Pro+**](https://fontawesome.com/) for Free. Get all stylesheets and webfonts into your project easily!
 
@@ -25,7 +25,7 @@ To unlock commercial use for your own projects, and get an official product lice
 - [**NOTICE**](#notice)
 - **SETUP**
   - [Setup with NPM](#setup)
-  - or [Download font-awesome-pro-v7.3.1.zip](https://github.com/LunaEternum/font-awesome-pro/releases)
+  - or [Download font-awesome-pro-v7.3.1.zip](https://github.com/EternumLuna/faproplus/releases)
 - **HOW TO USE**
   - [NPM version](#how-to-use-with-npm)
   - [Download version](#how-to-use-download-version)
@@ -171,4 +171,4 @@ import "webfont-awesome-pro/scss/notdog-solid.scss";
 
 ## PROBLEMS?
 
-Please post any bugs as a [GitHub issue](https://github.com/LunaEternum/font-awesome-pro/issues).
+Please post any bugs as a [GitHub issue](https://github.com/EternumLuna/faproplus/issues).
