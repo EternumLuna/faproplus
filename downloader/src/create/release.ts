@@ -1,5 +1,6 @@
 import fs from "fs"
 import waittime from "../helper/waittime"
+import { enableFaMotion } from "../main/motion-enabler"
 
 const pName = "webfont-awesome-pro"
 const cssFolder = `${pName}/css`
@@ -9,7 +10,13 @@ function manageAllCss(useDir: string, cssUrls: string[]): void {
   cssUrls.forEach((css) => {
     const cssDir = `./${useDir}/css/${css}`
     const newCssFile = fs.readFileSync(cssDir, "utf-8").replace(/\.\./g, pName)
-    fs.writeFileSync(cssDir, newCssFile, "utf-8")
+
+    const isContainReduce = ["all.css", "fontawesome.css"].includes(css)
+
+    const parsedCssFile = isContainReduce ? enableFaMotion(newCssFile) : newCssFile
+
+    fs.writeFileSync(cssDir, parsedCssFile, "utf-8")
+
     const scssDir = `./${useDir}/scss/${css.replace(".css", ".scss")}`
     const scssContent = `@use "${cssFolder}/${css}";\n`
     fs.writeFileSync(scssDir, scssContent, "utf-8")

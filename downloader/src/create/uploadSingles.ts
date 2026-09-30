@@ -56,7 +56,10 @@ export async function startDownloadSingles(): Promise<void> {
           fileExisted.push(fileName)
         }
       } else {
-        if (fileExisted.length >= 1) {
+        if (fileExisted.length >= 20) {
+          console.log(`? [EXISTED]: ${fileExisted.length} font types`)
+          fileExisted.splice(0, fileExisted.length)
+        } else if (fileExisted.length >= 2) {
           console.log(`? [EXISTED]: ${fileExisted.join(", ")}`)
           fileExisted.splice(0, fileExisted.length)
         }
