@@ -2,6 +2,8 @@
   "version": "7.3.1",
   "root": "https://site-assets.fontawesome.com/releases/v7.3.1",
   "css": [
+    "fontawesome.css",
+    "all.css",
     "solid.css",
     "regular.css",
     "light.css",
@@ -39,8 +41,6 @@
     "utility-fill-semibold.css",
     "vellum-solid.css",
     "whiteboard-semibold.css",
-    "fontawesome.css",
-    "all.css",
     "svg.css",
     "svg-with-js.css",
     "v4-font-face.css",
@@ -48,6 +48,8 @@
     "v5-font-face.css"
   ],
   "js": [
+    "fontawesome.js",
+    "all.js",
     "solid.js",
     "regular.js",
     "light.js",
@@ -85,8 +87,6 @@
     "utility-fill-semibold.js",
     "vellum-solid.js",
     "whiteboard-semibold.js",
-    "fontawesome.js",
-    "all.js",
     "conflict-detection.js",
     "v4-shims.js"
   ]

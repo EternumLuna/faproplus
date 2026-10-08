@@ -1,8 +1,11 @@
 import { getOfficialFamily, getOfficialRelease } from "../helper/official"
 import { Ver } from "../helper/fonts"
 
-const addedCSS: string[] = ["fontawesome.css", "all.css", "svg.css", "svg-with-js.css", "v4-font-face.css", "v4-shims.css", "v5-font-face.css"]
-const addedJS: string[] = ["fontawesome.js", "all.js", "conflict-detection.js", "v4-shims.js"]
+const baseCSS: string[] = ["fontawesome.css", "all.css"]
+const baseJS: string[] = ["fontawesome.js", "all.js"]
+
+const addedCSS: string[] = ["svg.css", "svg-with-js.css", "v4-font-face.css", "v4-shims.css", "v5-font-face.css"]
+const addedJS: string[] = ["conflict-detection.js", "v4-shims.js"]
 
 export async function getBuildVersion(): Promise<Ver> {
   const officialRelease = await getOfficialRelease()
@@ -29,8 +32,8 @@ export async function getBuildVersion(): Promise<Ver> {
   const newFonts: Ver = {
     version: useVersion,
     root: `https://site-assets.fontawesome.com/releases/v${useVersion}`,
-    css: [...newCssFam, ...addedCSS],
-    js: [...newJsFam, ...addedJS]
+    css: [...baseCSS, ...newCssFam, ...addedCSS],
+    js: [...baseJS, ...newJsFam, ...addedJS]
   }
 
   return newFonts

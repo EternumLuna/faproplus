@@ -8,7 +8,7 @@ npm install --save-exact webfont-awesome-pro
 
 Use the Latest [**Font Awesome Pro+**](https://fontawesome.com/) for Free. Get all stylesheets and webfonts into your project easily!
 
-- Package Version: 7.3.2-wip.8
+- Package Version: 7.3.2-wip.9
 - Font Awesome Pro+ Version: 7.3.1
 - Forked from: [devanka761/font-awesome-pro](https://github.com/devanka761/font-awesome-pro) *(discontinued)*
 
@@ -57,10 +57,10 @@ example `style-main.ts` / `style-main.js`:
 
 ```javascript
 // SCSS
-import "webfont-awesome-pro/scss/all.scss";
+import "webfont-awesome-pro/scss/full.scss";
 
 // or CSS
-import "webfont-awesome-pro/css/all.css";
+import "webfont-awesome-pro/css/full.css";
 
 // your code
 document.body.innerHTML = `
@@ -76,13 +76,13 @@ example `style.scss` / `style.css`:
 
 ```scss
 // support: SCSS
-@use "webfont-awesome-pro/scss/all.scss";
+@use "webfont-awesome-pro/scss/full.scss";
 
 // support: CSS, SCSS
-@import "webfont-awesome-pro/scss/all.scss";
+@import "webfont-awesome-pro/scss/full.scss";
 
 // support: CSS, SCSS
-@import url("webfont-awesome-pro/scss/all.scss");
+@import url("webfont-awesome-pro/scss/full.scss");
 
 ```
 
@@ -117,7 +117,7 @@ MY-PROJECT
 example `style.css`
 
 ```css
-@import "./fapro/css/all.css";
+@import "./fapro/css/full.css";
 ```
 
 #### HTML
@@ -131,7 +131,7 @@ example `index.html`:
 
   ... meta, etc
 
-  <link rel="stylesheet" href="./fapro/css/all.css" />
+  <link rel="stylesheet" href="./fapro/css/full.css" />
 
   ... style, theme, script, etc
 

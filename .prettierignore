@@ -7,7 +7,7 @@ package-lock.json
 tsconfig.json
 README.md
 nodemon.json
-src/json/fonts.json
+data/json/fonts.json
 dist
 ex
 temp

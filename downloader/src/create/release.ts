@@ -6,7 +6,17 @@ const pName = "webfont-awesome-pro"
 const cssFolder = `${pName}/css`
 
 function manageAllCss(useDir: string, cssUrls: string[]): void {
+  const fullStyle = cssUrls
+    .filter((css) => css !== "all.css")
+    .map((css) => `@import "${cssFolder}/${css}";`)
+    .join("\n")
+
+  fs.writeFileSync(`./${useDir}/css/full.css`, `${fullStyle}\n`, "utf-8")
+
   if (!fs.existsSync(`./${useDir}/scss`)) fs.mkdirSync(`./${useDir}/scss`)
+
+  fs.writeFileSync(`./${useDir}/scss/full.scss`, `@use "${cssFolder}/full.css";\n`, "utf-8")
+
   cssUrls.forEach((css) => {
     const cssDir = `./${useDir}/css/${css}`
     const newCssFile = fs.readFileSync(cssDir, "utf-8").replace(/\.\./g, pName)

@@ -9,7 +9,6 @@
     "declarationDir": "dist/types",
     "moduleResolution": "node16",
     "typeRoots": [
-      "src/types",
       "node_modules/@types"
     ],
     "resolveJsonModule": true,
