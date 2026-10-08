@@ -6,8 +6,10 @@ const pName = "webfont-awesome-pro"
 const cssFolder = `${pName}/css`
 
 function manageAllCss(useDir: string, cssUrls: string[]): void {
+  const excludeCss = ["svg-with-js.css", "all.css"]
+
   const fullStyle = cssUrls
-    .filter((css) => css !== "all.css")
+    .filter((css) => !excludeCss.some((k) => k === css))
     .map((css) => `@import "${cssFolder}/${css}";`)
     .join("\n")
 
